@@ -4,10 +4,14 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         s <- NULL
+        set <- function(y) {
+                x <<- y
+                s <<- NULL
+        }
         get <- function() x
+        setsol <- function(solve) s <<- solve
         getsol <- function() s 
-        setsol <- function(sol) s <<- sol
-        list(get = get, getsol = getsol, setsol = setsol)
+        list(set = set, get = get, setsol = setsol, getsol = getsol)
 }
 
 ## This function computes the inverse of the special "matrix" returned by 
